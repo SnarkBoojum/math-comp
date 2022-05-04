@@ -34,13 +34,18 @@ with builtins; with (import <nixpkgs> {}).lib;
 
   bundles = let
     master = [
-      "mathcomp-finmap" "mathcomp-bigenough"
+      "mathcomp-bigenough"
       "mathcomp-abel" "multinomials" "mathcomp-real-closed" "coqeal"
       "fourcolor" "odd-order" "gaia" "deriving" "mathcomp-zify"
       "extructures" "mathcomp-analysis"
     ];
+    hierarchy-builder = [
+      "mathcomp-finmap"
+    ];
     common-bundles = listToAttrs (forEach master (p:
       { name = p; value.override.version = "master"; }))
+    // listToAttrs (forEach hierarchy-builder (p:
+      { name = p; value.override.version = "hierarchy-builder"; }))
     // { mathcomp-ssreflect.main-job = true;
          mathcomp-doc.job = true;
        };
