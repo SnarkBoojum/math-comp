@@ -98,8 +98,9 @@ coq-8.14:
 coq-8.15:
   extends: .opam-build-once
 
-coq-dev:
-  extends: .opam-build
+# The Docker image is currently outdated
+#coq-dev:
+#  extends: .opam-build
 
 ################
 ##### test stage
@@ -139,10 +140,11 @@ coq-dev:
     variables:
       - $CRON_MODE == "nightly"
 
-test-coq-dev:
-  extends: .test
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#test-coq-dev:
+#  extends: .test
+#  variables:
+#    COQ_VERSION: "dev"
 
 test-coq-8.15:
   extends: .test-once
@@ -208,10 +210,11 @@ ci-fourcolor-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-fourcolor-dev:
-  extends: .ci-fourcolor
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-fourcolor-dev:
+#  extends: .ci-fourcolor
+#  variables:
+#    COQ_VERSION: "dev"
 
 # The Odd Order Theorem
 .ci-odd-order:
@@ -228,10 +231,11 @@ ci-odd-order-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-odd-order-dev:
-  extends: .ci-odd-order
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-odd-order-dev:
+#  extends: .ci-odd-order
+#  variables:
+#    COQ_VERSION: "dev"
 
 # The Lemma Overloading library
 .ci-lemma-overloading:
@@ -248,10 +252,11 @@ ci-lemma-overloading-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-lemma-overloading-dev:
-  extends: .ci-lemma-overloading
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-lemma-overloading-dev:
+#  extends: .ci-lemma-overloading
+#  variables:
+#    COQ_VERSION: "dev"
 
 # The bigenough library (will be later subsumed by near)
 .ci-bigenough:
@@ -268,10 +273,11 @@ ci-bigenough-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-bigenough-dev:
-  extends: .ci-bigenough
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-bigenough-dev:
+#  extends: .ci-bigenough
+#  variables:
+#    COQ_VERSION: "dev"
 
 # The real-closed library
 .ci-real-closed:
@@ -289,10 +295,11 @@ ci-real-closed-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-real-closed-dev:
-  extends: .ci-real-closed
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-real-closed-dev:
+#  extends: .ci-real-closed
+#  variables:
+#    COQ_VERSION: "dev"
 
 # The finmap library
 .ci-finmap:
@@ -310,10 +317,11 @@ ci-finmap-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-finmap-dev:
-  extends: .ci-finmap
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-finmap-dev:
+#  extends: .ci-finmap
+#  variables:
+#    COQ_VERSION: "dev"
 
 # The multinomials library
 .ci-multinomials:
@@ -331,10 +339,11 @@ ci-multinomials-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-multinomials-dev:
-  extends: .ci-multinomials
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-multinomials-dev:
+#  extends: .ci-multinomials
+#  variables:
+#    COQ_VERSION: "dev"
 
 # The analysis library
 .ci-analysis:
@@ -372,10 +381,11 @@ ci-fcsl-pcm-8.13:
   variables:
     COQ_VERSION: "8.13"
 
-ci-fcsl-pcm-dev:
-  extends: .ci-fcsl-pcm
-  variables:
-    COQ_VERSION: "dev"
+# The Docker image is currently outdated
+#ci-fcsl-pcm-dev:
+#  extends: .ci-fcsl-pcm
+#  variables:
+#    COQ_VERSION: "dev"
 
 ################
 ### deploy stage
@@ -428,5 +438,6 @@ mathcomp-dev_coq-8.14:
 mathcomp-dev_coq-8.15:
   extends: .docker-deploy-once
 
-mathcomp-dev_coq-dev:
-  extends: .docker-deploy
+# The Docker image is currently outdated
+#mathcomp-dev_coq-dev:
+#  extends: .docker-deploy
