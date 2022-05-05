@@ -4,7 +4,7 @@ with lib; mkCoqDerivation {
 
   namePrefix = [ "coq" "mathcomp" ];
   pname = "finmap";
-  owner = "affeldt-aist";
+  owner = "proux01";
   inherit version;
   defaultVersion = with versions; switch [ coq.version mathcomp.version ]  [
       { cases = [ (isGe "8.10")          (isGe "1.11") ];         out = "1.5.1"; }
