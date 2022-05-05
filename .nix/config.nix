@@ -36,12 +36,12 @@ with builtins; with (import <nixpkgs> {}).lib;
     master = [
       "mathcomp-bigenough"
       "mathcomp-abel"
-      "fourcolor" "gaia" "deriving" "mathcomp-zify"
+      "fourcolor" "gaia" "deriving"
       "extructures" "mathcomp-analysis"
     ];
     hierarchy-builder = [
       "mathcomp-finmap" "mathcomp-real-closed" "multinomials" "coqeal"
-      "odd-order"
+      "odd-order" "mathcomp-zify"
     ];
     common-bundles = listToAttrs (forEach master (p:
       { name = p; value.override.version = "master"; }))
