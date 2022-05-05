@@ -220,8 +220,8 @@ ci-fourcolor-8.13:
 .ci-odd-order:
   extends: .ci
   variables:
-    CONTRIB_URL: "https://github.com/math-comp/odd-order.git"
-    CONTRIB_VERSION: master
+    CONTRIB_URL: "https://github.com/proux01/odd-order.git"
+    CONTRIB_VERSION: hierarchy-builder
   script:
     - make -j "${NJOBS}"
     - make install
