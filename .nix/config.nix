@@ -41,12 +41,17 @@ with builtins; with (import <nixpkgs> {}).lib;
     ];
     hierarchy-builder = [
       "mathcomp-finmap" "mathcomp-real-closed" "multinomials" "coqeal"
-      "odd-order" "mathcomp-zify" "coquelicot" "interval"
+      "mathcomp-zify" "coquelicot" "interval"
+    ];
+    hirarchy-builder = [  # Typo
+      "odd-order"
     ];
     common-bundles = listToAttrs (forEach master (p:
       { name = p; value.override.version = "master"; }))
     // listToAttrs (forEach hierarchy-builder (p:
       { name = p; value.override.version = "hierarchy-builder"; }))
+    // listToAttrs (forEach hirarchy-builder (p:
+      { name = p; value.override.version = "hirarchy-builder"; }))
     // { mathcomp-ssreflect.main-job = true;
          mathcomp-doc.job = true;
        };
