@@ -6,6 +6,7 @@ WORKDIR /home/coq/mathcomp
 COPY . .
 
 RUN ["/bin/bash", "--login", "-c", "set -x \
+  && opam switch \
   && ( [ -z \"${COMPILER}\" ] || opam switch set \"${COMPILER}\" ) \
   && ( [ -z \"${COMPILER_EDGE}\" ] || opam switch set \"${COMPILER_EDGE}\" ) \
   && eval $(opam env) \
