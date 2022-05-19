@@ -7,10 +7,11 @@ COPY . .
 
 RUN ["/bin/bash", "--login", "-c", "set -x \
   && opam switch \
-  && ( [ -z \"${COMPILER}\" ] || opam switch set \"${COMPILER}\" ) \
-  && ( [ -z \"${COMPILER_EDGE}\" ] || opam switch set \"${COMPILER_EDGE}\" ) \
+  && [ -n \"${COMPILER_EDGE}\" ] \
+  && opam switch set \"${COMPILER_EDGE}\" \
   && eval $(opam env) \
-  && ( [ -z \"${COMPILER}\" -o -z \"${COMPILER_EDGE}\" ] || opam switch remove -y \"${COMPILER}\" ) \
+  && [ -n \"${COMPILER}\" ] \
+  && opam switch remove -y \"${COMPILER}\" \
   && opam repository add --all-switches --set-default coq-extra-dev https://coq.inria.fr/opam/extra-dev \
   && opam repository add --all-switches --set-default coq-core-dev https://coq.inria.fr/opam/core-dev \
   && opam update -y \

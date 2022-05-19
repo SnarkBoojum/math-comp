@@ -71,8 +71,7 @@ make-coq-latest:
     - echo "${OPAM_SWITCH}"
     - echo "${CI_JOB_TOKEN}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
   script:
-    - IMG_NAME=$(echo "${CI_JOB_NAME}" | sed -e 's/-/:/')
-    - docker build --pull --build-arg=coq_image="coqorg/${IMG_NAME}" --build-arg=compiler="${OPAM_SWITCH}" -t "${IMAGE}" .
+    - docker build --pull --build-arg=coq_image="coqorg/${CI_JOB_NAME//-/:}" --build-arg=compiler="${OPAM_SWITCH}" -t "${IMAGE}" .
     - docker push "${IMAGE}"
     - docker logout "${CI_REGISTRY}"
   except:
@@ -99,8 +98,9 @@ coq-8.14:
 coq-8.15:
   extends: .opam-build-once
 
-coq-dev-ocaml-4.13-flambda:
-  extends: .opam-build
+# The Docker image is currently outdated
+#coq-dev:
+#  extends: .opam-build
 
 ################
 ##### test stage
@@ -140,10 +140,11 @@ coq-dev-ocaml-4.13-flambda:
     variables:
       - $CRON_MODE == "nightly"
 
-test-coq-dev:
-  extends: .test
-  variables:
-    COQ_VERSION: "dev-ocaml-4.13-flambda"
+# The Docker image is currently outdated
+#test-coq-dev:
+#  extends: .test
+#  variables:
+#    COQ_VERSION: "dev"
 
 test-coq-8.15:
   extends: .test-once
