@@ -302,6 +302,8 @@ jobs:
   coq-bits:
     needs:
     - coq
+    - mathcomp-ssreflect
+    - mathcomp-fingroup
     - mathcomp-algebra
     runs-on: ubuntu-latest
     steps:
